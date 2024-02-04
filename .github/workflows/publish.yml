@@ -1,0 +1,32 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: |
+            good-strategy-bad-strategy/good-strategy-bad-strategy.tex
+          work_in_root_file_dir: true
+      - name: Move PDFs
+        run: |
+          mv **/*.pdf dist
+      - uses: actions/configure-pages@v2
+      - uses: actions/upload-pages-artifact@v1
+        with:
+          path: './dist/'
+      - uses: actions/deploy-pages@v1
+        id: deployment
