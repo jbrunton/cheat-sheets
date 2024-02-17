@@ -22,6 +22,7 @@ jobs:
             good-strategy-bad-strategy/good-strategy-bad-strategy.tex
             facilitating-dialogue/facilitating-dialogue.tex
             humble-inquiry/humble-inquiry.tex
+            decentralized-control/decentralized-control.tex
           work_in_root_file_dir: true
       - name: Move PDFs
         run: |
