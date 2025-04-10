@@ -28,7 +28,7 @@ jobs:
         run: |
           mv **/*.pdf dist
       - uses: actions/configure-pages@v2
-      - uses: actions/upload-pages-artifact@v1
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: './dist/'
       - uses: actions/deploy-pages@v1
